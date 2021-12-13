@@ -100,7 +100,7 @@ namespace eTickets.Data.Services
             //Remove existing actors
             var existingActorsDb = _context.Actors_Movies.Where(n => n.MovieId == data.Id).ToList();
             _context.Actors_Movies.RemoveRange(existingActorsDb);
-            _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
             //Add Movie Actors
             foreach (var actorId in data.ActorIds)
